@@ -1,34 +1,14 @@
 {% extends "templates/page.html" %}
+{% if announcement_login %}
+{% set announcement = announcement_login %}
+{% endif %}
 
 {% block login_widget %}
 {% endblock %}
 
 {% block main %}
+
 {% block login %}
-
-<head>
-    <style>
-        #login-main img {
-            margin-left: auto;
-            margin-right: auto;
-            display: table;
-        }
-
-        #login-main p {
-            margin-left: auto;
-            margin-right: auto;
-            display: table;
-        }
-
-        #login-main form {
-            display: table;
-            vertical-align: middle;
-            margin: auto auto 5% auto;
-            width: 350px;
-            font-size: large;
-        }
-    </style>
-</head>
 <div id="login-main" class="container">
     <!--
     <img src="https://weblogin.albany.edu/idp2/images/Single_Sign_On_Login_Hello.jpg" alt="Hello"></img>
@@ -69,97 +49,97 @@
             <input type="submit" id="login_submit" class='btn btn-jupyter' value='Sign In' tabindex="3" />
         </div>
     </form>
-    <p>The DATAINPOINT Lab is reserved for authorized use only.
-        By using DATAINPOINT Lab, you represent that you are an authorized user and agree to protect and maintain the
-        security, integrity, and confidentiality of the system and data stored on it consistent with DATAINPOINT Lab
-        policies and all legal requirements.
-        Certain activities are monitored in the course of normal system operations and maintenance.
-        Unauthorized use will be reported to the appropriate authorities.</p>
-    <h1>Website Terms and Conditions of Use</h1>
-
-    <h2>1. Terms</h2>
-
-    <p>By accessing this Website, accessible from https://lab.datainpoint.com, you are agreeing to be bound by these
-        Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable
-        local laws. If you disagree with any of these terms, you are prohibited from accessing this site. The materials
-        contained in this Website are protected by copyright and trade mark law.</p>
-
-    <h2>2. Use License</h2>
-
-    <p>Permission is granted to temporarily download one copy of the materials on Datainpoint, Inc.'s Website for
-        personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and
-        under this license you may not:</p>
-
-    <ul>
-        <li>modify or copy the materials;</li>
-        <li>use the materials for any commercial purpose or for any public display;</li>
-        <li>attempt to reverse engineer any software contained on Datainpoint, Inc.'s Website;</li>
-        <li>remove any copyright or other proprietary notations from the materials; or</li>
-        <li>transferring the materials to another person or "mirror" the materials on any other server.</li>
-    </ul>
-
-    <p>This will let Datainpoint, Inc. to terminate upon violations of any of these restrictions. Upon termination, your
-        viewing right will also be terminated and you should destroy any downloaded materials in your possession whether
-        it is printed or electronic format.</p>
-
-    <h2>3. Disclaimer</h2>
-
-    <p>All the materials on Datainpoint, Inc.’s Website are provided "as is". Datainpoint, Inc. makes no warranties, may
-        it be expressed or implied, therefore negates all other warranties. Furthermore, Datainpoint, Inc. does not make
-        any representations concerning the accuracy or reliability of the use of the materials on its Website or
-        otherwise relating to such materials or any sites linked to this Website.</p>
-
-    <h2>4. Limitations</h2>
-
-    <p>Datainpoint, Inc. or its suppliers will not be hold accountable for any damages that will arise with the use or
-        inability to use the materials on Datainpoint, Inc.’s Website, even if Datainpoint, Inc. or an authorize
-        representative of this Website has been notified, orally or written, of the possibility of such damage. Some
-        jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental
-        damages, these limitations may not apply to you.</p>
-
-    <h2>5. Revisions and Errata</h2>
-
-    <p>The materials appearing on Datainpoint, Inc.’s Website may include technical, typographical, or photographic
-        errors. Datainpoint, Inc. will not promise that any of the materials in this Website are accurate, complete, or
-        current. Datainpoint, Inc. may change the materials contained on its Website at any time without notice.
-        Datainpoint, Inc. does not make any commitment to update the materials.</p>
-    <!--
-        <h2>6. Links</h2>
-        
-        <p>Datainpoint, Inc. has not reviewed all of the sites linked to its Website and is not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by Datainpoint, Inc. of the site. The use of any linked website is at the user’s own risk.</p>
--->
-    <h2>6. Site Terms of Use Modifications</h2>
-
-    <p>Datainpoint, Inc. may revise these Terms of Use for its Website at any time without prior notice. By using this
-        Website, you are agreeing to be bound by the current version of these Terms and Conditions of Use.</p>
-    <!--      
-        <h2>8. Your Privacy</h2>
-        
-        <p>Please read our Privacy Policy.</p>
--->
-    <h2>7. Governing Law</h2>
-
-    <p>Any claim related to Datainpoint, Inc.'s Website shall be governed by the laws of us without regards to its
-        conflict of law provisions.</p>
-    <!--
-Learn more about <a href="http://www.albany.edu/its/authorizeduse.htm">authorized use</a>.</p>
-    </div>
--->
     {% endif %}
+</div>
+{% endblock login %}
 
-    {% endblock login %}
+<p>The DATAINPOINT Lab is reserved for authorized use only.
+    By using DATAINPOINT Lab, you represent that you are an authorized user and agree to protect and maintain the
+    security, integrity, and confidentiality of the system and data stored on it consistent with DATAINPOINT Lab
+    policies and all legal requirements.
+    Certain activities are monitored in the course of normal system operations and maintenance.
+    Unauthorized use will be reported to the appropriate authorities.</p>
+<h1>Website Terms and Conditions of Use</h1>
 
-    {% endblock %}
+<h2>1. Terms</h2>
 
-    {% block script %}
-    {{super()}}
+<p>By accessing this Website, accessible from https://lab.datainpoint.com, you are agreeing to be bound by these
+    Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable
+    local laws. If you disagree with any of these terms, you are prohibited from accessing this site. The materials
+    contained in this Website are protected by copyright and trade mark law.</p>
 
-    <script>
-        if (window.location.protocol === "http:") {
-            // unhide http warning
-            var warning = document.getElementById('insecure-login-warning');
-            warning.className = warning.className.replace(/\bhidden\b/, '');
-        }
-    </script>
+<h2>2. Use License</h2>
 
-    {% endblock %}
+<p>Permission is granted to temporarily download one copy of the materials on Datainpoint, Inc.'s Website for
+    personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and
+    under this license you may not:</p>
+
+<ul>
+    <li>modify or copy the materials;</li>
+    <li>use the materials for any commercial purpose or for any public display;</li>
+    <li>attempt to reverse engineer any software contained on Datainpoint, Inc.'s Website;</li>
+    <li>remove any copyright or other proprietary notations from the materials; or</li>
+    <li>transferring the materials to another person or "mirror" the materials on any other server.</li>
+</ul>
+
+<p>This will let Datainpoint, Inc. to terminate upon violations of any of these restrictions. Upon termination, your
+    viewing right will also be terminated and you should destroy any downloaded materials in your possession whether
+    it is printed or electronic format.</p>
+
+<h2>3. Disclaimer</h2>
+
+<p>All the materials on Datainpoint, Inc.’s Website are provided "as is". Datainpoint, Inc. makes no warranties, may
+    it be expressed or implied, therefore negates all other warranties. Furthermore, Datainpoint, Inc. does not make
+    any representations concerning the accuracy or reliability of the use of the materials on its Website or
+    otherwise relating to such materials or any sites linked to this Website.</p>
+
+<h2>4. Limitations</h2>
+
+<p>Datainpoint, Inc. or its suppliers will not be hold accountable for any damages that will arise with the use or
+    inability to use the materials on Datainpoint, Inc.’s Website, even if Datainpoint, Inc. or an authorize
+    representative of this Website has been notified, orally or written, of the possibility of such damage. Some
+    jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental
+    damages, these limitations may not apply to you.</p>
+
+<h2>5. Revisions and Errata</h2>
+
+<p>The materials appearing on Datainpoint, Inc.’s Website may include technical, typographical, or photographic
+    errors. Datainpoint, Inc. will not promise that any of the materials in this Website are accurate, complete, or
+    current. Datainpoint, Inc. may change the materials contained on its Website at any time without notice.
+    Datainpoint, Inc. does not make any commitment to update the materials.</p>
+<!--
+    <h2>6. Links</h2>
+    
+    <p>Datainpoint, Inc. has not reviewed all of the sites linked to its Website and is not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by Datainpoint, Inc. of the site. The use of any linked website is at the user’s own risk.</p>
+-->
+<h2>6. Site Terms of Use Modifications</h2>
+
+<p>Datainpoint, Inc. may revise these Terms of Use for its Website at any time without prior notice. By using this
+    Website, you are agreeing to be bound by the current version of these Terms and Conditions of Use.</p>
+<!--      
+    <h2>8. Your Privacy</h2>
+    
+    <p>Please read our Privacy Policy.</p>
+-->
+<h2>7. Governing Law</h2>
+
+<p>Any claim related to Datainpoint, Inc.'s Website shall be governed by the laws of us without regards to its
+    conflict of law provisions.</p>
+<!--
+Learn more about <a href="http://www.albany.edu/its/authorizeduse.htm">authorized use</a>.</p>
+-->
+
+{% endblock %}
+
+{% block script %}
+{{super()}}
+
+<script>
+    if (window.location.protocol === "http:") {
+        // unhide http warning
+        var warning = document.getElementById('insecure-login-warning');
+        warning.className = warning.className.replace(/\bhidden\b/, '');
+    }
+</script>
+
+{% endblock %}
