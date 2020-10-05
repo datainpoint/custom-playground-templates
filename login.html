@@ -1,146 +1,86 @@
-{% extends "page.html" %}
-{% if announcement_login %}
-{% set announcement = announcement_login %}
-{% endif %}
-
-{% block login_widget %}
-{% endblock %}
-
-{% block main %}
-
+{% extends "templates/login.html" %}
 {% block login %}
-<div id="login-main" class="container">
-    <!--
-    <img src="https://weblogin.albany.edu/idp2/images/Single_Sign_On_Login_Hello.jpg" alt="Hello"></img>
-    <p>&nbsp;</p>
-    <img src="https://weblogin.albany.edu/idp2/images/UA_logo.gif" alt="University at Albany Logo"></img>
-    -->
-    {% if custom_html %}
-    {{ custom_html | safe }}
-    {% elif login_service %}
-    <div class="service-login">
-        <a role="button" class='btn btn-jupyter btn-lg' href='{{authenticator_login_url}}'>
-            Sign in with {{login_service}}
-        </a>
-    </div>
-    {% else %}
-    <form action="{{login_url}}?next={{next}}" method="post" role="form">
-        <div class="auth-form-header">
-            Sign in
-        </div>
-        <div class='auth-form-body'>
-
-            <p id='insecure-login-warning' class='hidden'>
-                Warning: JupyterHub seems to be served over an unsecured HTTP connection.
-                We strongly recommend enabling HTTPS for JupyterHub.
-            </p>
-
-            {% if login_error %}
-            <p class="login_error">
-                {{login_error}}
-            </p>
-            {% endif %}
-            <label for="username_input">Username:</label>
-            <input id="username_input" type="text" autocapitalize="off" autocorrect="off" class="form-control"
-                name="username" val="{{username}}" tabindex="1" autofocus="autofocus" />
-            <label for='password_input'>Password:</label>
-            <input type="password" class="form-control" name="password" id="password_input" tabindex="2" />
-
-            <input type="submit" id="login_submit" class='btn btn-jupyter' value='Sign In' tabindex="3" />
-        </div>
-    </form>
-    {% endif %}
+<div class='container branding'>
+    <img src='https://snri.ucmerced.edu/sites/snri.ucmerced.edu/files/images/170206_ucmercedlogo_seal.png'>
 </div>
 
-<p>The DATAINPOINT Lab is reserved for authorized use only.
-    By using DATAINPOINT Lab, you represent that you are an authorized user and agree to protect and maintain the
-    security, integrity, and confidentiality of the system and data stored on it consistent with DATAINPOINT Lab
-    policies and all legal requirements.
-    Certain activities are monitored in the course of normal system operations and maintenance.
-    Unauthorized use will be reported to the appropriate authorities.</p>
-<h1>Website Terms and Conditions of Use</h1>
 
-<h2>1. Terms</h2>
+{{ super() }}
 
-<p>By accessing this Website, accessible from https://lab.datainpoint.com, you are agreeing to be bound by these
-    Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable
-    local laws. If you disagree with any of these terms, you are prohibited from accessing this site. The materials
-    contained in this Website are protected by copyright and trade mark law.</p>
-
-<h2>2. Use License</h2>
-
-<p>Permission is granted to temporarily download one copy of the materials on Datainpoint, Inc.'s Website for
-    personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and
-    under this license you may not:</p>
-
-<ul>
-    <li>modify or copy the materials;</li>
-    <li>use the materials for any commercial purpose or for any public display;</li>
-    <li>attempt to reverse engineer any software contained on Datainpoint, Inc.'s Website;</li>
-    <li>remove any copyright or other proprietary notations from the materials; or</li>
-    <li>transferring the materials to another person or "mirror" the materials on any other server.</li>
-</ul>
-
-<p>This will let Datainpoint, Inc. to terminate upon violations of any of these restrictions. Upon termination, your
-    viewing right will also be terminated and you should destroy any downloaded materials in your possession whether
-    it is printed or electronic format.</p>
-
-<h2>3. Disclaimer</h2>
-
-<p>All the materials on Datainpoint, Inc.’s Website are provided "as is". Datainpoint, Inc. makes no warranties, may
-    it be expressed or implied, therefore negates all other warranties. Furthermore, Datainpoint, Inc. does not make
-    any representations concerning the accuracy or reliability of the use of the materials on its Website or
-    otherwise relating to such materials or any sites linked to this Website.</p>
-
-<h2>4. Limitations</h2>
-
-<p>Datainpoint, Inc. or its suppliers will not be hold accountable for any damages that will arise with the use or
-    inability to use the materials on Datainpoint, Inc.’s Website, even if Datainpoint, Inc. or an authorize
-    representative of this Website has been notified, orally or written, of the possibility of such damage. Some
-    jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental
-    damages, these limitations may not apply to you.</p>
-
-<h2>5. Revisions and Errata</h2>
-
-<p>The materials appearing on Datainpoint, Inc.’s Website may include technical, typographical, or photographic
-    errors. Datainpoint, Inc. will not promise that any of the materials in this Website are accurate, complete, or
-    current. Datainpoint, Inc. may change the materials contained on its Website at any time without notice.
-    Datainpoint, Inc. does not make any commitment to update the materials.</p>
-<!--
-    <h2>6. Links</h2>
-    
-    <p>Datainpoint, Inc. has not reviewed all of the sites linked to its Website and is not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by Datainpoint, Inc. of the site. The use of any linked website is at the user’s own risk.</p>
--->
-<h2>6. Site Terms of Use Modifications</h2>
-
-<p>Datainpoint, Inc. may revise these Terms of Use for its Website at any time without prior notice. By using this
-    Website, you are agreeing to be bound by the current version of these Terms and Conditions of Use.</p>
-<!--      
-    <h2>8. Your Privacy</h2>
-    
-    <p>Please read our Privacy Policy.</p>
--->
-<h2>7. Governing Law</h2>
-
-<p>Any claim related to Datainpoint, Inc.'s Website shall be governed by the laws of us without regards to its
-    conflict of law provisions.</p>
-<!--
-Learn more about <a href="http://www.albany.edu/its/authorizeduse.htm">authorized use</a>.</p>
--->
-
-{% endblock login %}
+<footer class='navbar-default'>
+    <p>Access to the lab.datainpoint.com is currently in Beta. By signing in, you are accepting DATAINPOINT's general
+        terms and conditions and privacy policy.</p>
+</footer>
 
 {% endblock %}
 
-{% block script %}
-{{super()}}
-
-<script>
-    if (window.location.protocol === "http:") {
-        // unhide http warning
-        var warning = document.getElementById('insecure-login-warning');
-        warning.className = warning.className.replace(/\bhidden\b/, '');
+{% block stylesheet %}
+{{ super() }}
+<style>
+    .branding img {
+        display: block;
+        width: 350px;
+        /* top right bottom left */
+        margin: 0 auto 0 auto;
     }
-</script>
 
+    #login-main .auth-form-body {
+        border-color: rgb(0, 124, 186);
+        color: white;
+    }
+
+    #login-main {
+        margin-top: 1%;
+        height: 100%;
+    }
+
+    footer {
+        border-top: 1px solid silver;
+        padding: 10px;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+    }
+
+    footer p {
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    #login-main form {
+        vertical-align: top;
+    }
+
+    #login-main .auth-form-header {
+        color: white;
+        background: rgb(219, 170, 0);
+        border: 1px solid;
+        border-color: rgb(0, 124, 186);
+    }
+
+    #insecure-login-warning {
+        color: black;
+    }
+
+    .btn-jupyter.active,
+    .btn-jupyter:active,
+    .open>.dropdown-toggle.btn-jupyter {
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px #a88400;
+        border-color: #a88400;
+        outline-color: #a88400;
+    }
+
+    #login-main .form-control:focus,
+    #login-main input[type=submit]:focus {
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(219, 170, 0);
+        border-color: rgb(219, 170, 0);
+        outline-color: rgb(219, 170, 0);
+    }
+
+    .btn-jupyter {
+        color: #fff;
+        background-color: rgb(219, 170, 0);
+        border-color: rgb(219, 170, 0);
+    }
+</style>
 {% endblock %}
