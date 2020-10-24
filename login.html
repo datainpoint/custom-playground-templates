@@ -1,8 +1,30 @@
 {% extends "templates/login.html" %}
 {% block login %}
-
 {{ super() }}
 
-<p>...Terms of Services and Privacy Policy here...</p>
+<div class='container' id="login-main">
+  <p>...Terms of Services and Privacy Policy here...</p>
+</div>
+  
+<footer class='navbar-default'>
+    <p>Copyright&copy; 2020-present Datainpoint, Inc.&reg;</p>
+</footer>
 
+{% endblock %}
+
+{% block stylesheet %}
+{{ super() }}
+<style>
+    footer {
+        border-top: 1px solid silver;
+        padding: 10px;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+    }
+    footer p {
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+</style>
 {% endblock %}
