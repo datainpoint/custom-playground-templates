@@ -1,8 +1,6 @@
 {% extends "templates/login.html" %}
 {% block login %}
 
-{{ super() }}
-
 <!-- BEGIN ANSIBLE MANAGED BLOCK -->
 <br><br><br><br>
 By signing in, you are accepting DATAINPOINT's <a onclick="var pp = document.getElementById('datainpointPP'); var gtc = document.getElementById('datainpointGTC'); pp.style.display = 'none'; if (gtc.style.display === 'none') { gtc.style.display = 'block'; } else { gtc.style.display = 'none'; }">general terms and conditions</a> and <a onclick="var gtc = document.getElementById('datainpointGTC'); gtc.style.display = 'none'; var pp = document.getElementById('datainpointPP'); if (pp.style.display === 'none') { pp.style.display = 'block'; } else { pp.style.display = 'none'; }">privacy policy</a>.
@@ -178,6 +176,7 @@ For all questions regarding the GTC, and to report any violation, please contact
 <br>
 </div>
 <!-- END ANSIBLE MANAGED BLOCK -->
+{{ super() }}
 
 {% endblock %}
 <!--
